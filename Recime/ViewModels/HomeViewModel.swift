@@ -10,57 +10,79 @@ import SwiftUI
 @Observable
 @MainActor
 final class HomeViewModel {
-    // MARK: - Published State
+ 
+    // MARK: State
+ 
     var featuredRecipe: Recipe?
     var recipes: [Recipe] = []
     var moods: [Mood] = []
+ 
     var searchText: String = ""
     var selectedMood: Mood?
     var isVegetarianOnly: Bool = false
+    var servingsFilter: ServingsFilter = .all
+ 
     var isLoading: Bool = false
     var error: RecipeServiceError?
-
-    // MARK: - Dependencies
+ 
+    // MARK: Dependencies
+ 
     private let service: RecipeService
-
+ 
     init(service: RecipeService = MockRecipeService()) {
         self.service = service
     }
-
-    // MARK: - Computed: Filtered Recipes
-
+ 
+    // MARK: Filtered Results
+ 
+    /// Applies all active filters: text search, mood, vegetarian, servings.
+    /// Text search covers title, description, ingredient names, and instruction text.
     var filteredRecipes: [Recipe] {
         var results = recipes
-
-        // Text search: title, description, ingredients, instructions
+ 
+        // Full-text search
         if !searchText.isEmpty {
             let query = searchText.lowercased()
             results = results.filter { recipe in
                 recipe.title.lowercased().contains(query)
                 || recipe.description.lowercased().contains(query)
                 || recipe.ingredients.contains { $0.name.lowercased().contains(query) }
-                || recipe.instructions.contains { $0.description.lowercased().contains(query) }
+                || recipe.instructions.contains {
+                    $0.title.lowercased().contains(query)
+                    || $0.description.lowercased().contains(query)
+                }
             }
         }
-
-        // Mood filter
+ 
+        // Mood category
         if let mood = selectedMood {
             results = results.filter { $0.mood.contains(mood.id) }
         }
-
-        // Vegetarian filter
+ 
+        // Dietary
         if isVegetarianOnly {
-            results = results.filter { $0.dietaryAttributes.contains("vegetarian") }
+            results = results.filter { $0.isVegetarian }
         }
-
+ 
+        // Servings
+        if servingsFilter != .all {
+            results = results.filter { servingsFilter.matches($0.servings) }
+        }
+ 
         return results
     }
-
-    // MARK: - Actions
+ 
+    /// Whether any filter is currently active (for showing a clear button)
+    var hasActiveFilters: Bool {
+        selectedMood != nil || isVegetarianOnly || servingsFilter != .all
+    }
+ 
+    // MARK: Actions
+ 
     func loadRecipes() async {
         isLoading = true
         error = nil
-
+ 
         do {
             let response = try await service.fetchRecipes()
             featuredRecipe = response.featured
@@ -69,18 +91,20 @@ final class HomeViewModel {
         } catch let serviceError as RecipeServiceError {
             error = serviceError
         } catch {
-            self.error = .networkError(error)
+            self.error = .decodingFailed(error)
         }
-
+ 
         isLoading = false
     }
-
+ 
     func selectMood(_ mood: Mood) {
-        // TODO: check if this can be one-liner
-        if selectedMood == mood {
-            selectedMood = nil  // Toggle off
-        } else {
-            selectedMood = mood
-        }
+        selectedMood = (selectedMood == mood) ? nil : mood
+    }
+ 
+    func clearFilters() {
+        selectedMood = nil
+        isVegetarianOnly = false
+        servingsFilter = .all
+        searchText = ""
     }
 }
