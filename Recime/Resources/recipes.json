@@ -1,0 +1,586 @@
+{
+  "featured": {
+    "id": "featured_001",
+    "title": "Summer Harvest Buddha Bowl with Tahini",
+    "description": "A vibrant, nutrient-packed bowl featuring roasted seasonal vegetables, quinoa, chickpeas, and a creamy lemon-tahini dressing. The perfect balance of flavor and nourishment.",
+    "image": "buddha_bowl",
+    "servings": 4,
+    "prepTimeMinutes": 25,
+    "calories": 420,
+    "rating": 4.9,
+    "isFeatured": true,
+    "dietaryAttributes": ["vegetarian", "vegan", "gluten-free"],
+    "mood": ["healthy", "quick-meals"],
+    "ingredients": [
+      { "name": "quinoa", "amount": "1", "unit": "cup" },
+      { "name": "chickpeas", "amount": "1", "unit": "can (15 oz), drained" },
+      { "name": "sweet potato", "amount": "1", "unit": "medium, cubed" },
+      { "name": "kale", "amount": "2", "unit": "cups, chopped" },
+      { "name": "avocado", "amount": "1", "unit": "sliced" },
+      { "name": "cherry tomatoes", "amount": "1/2", "unit": "cup, halved" },
+      { "name": "tahini", "amount": "3", "unit": "tbsp" },
+      { "name": "lemon juice", "amount": "2", "unit": "tbsp" },
+      { "name": "garlic", "amount": "1", "unit": "clove, minced" },
+      { "name": "olive oil", "amount": "2", "unit": "tbsp" },
+      { "name": "sea salt", "amount": "", "unit": "to taste" }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "title": "Cook the Quinoa",
+        "description": "Rinse quinoa under cold water. Combine with 2 cups of water in a saucepan, bring to a boil, reduce heat, cover, and simmer for 15 minutes until fluffy.",
+        "timerMinutes": 15
+      },
+      {
+        "step": 2,
+        "title": "Roast the Sweet Potato",
+        "description": "Preheat oven to 400°F (200°C). Toss cubed sweet potato with 1 tbsp olive oil and a pinch of salt. Spread on a baking sheet and roast for 20 minutes until golden and tender.",
+        "timerMinutes": 20
+      },
+      {
+        "step": 3,
+        "title": "Prepare the Tahini Dressing",
+        "description": "Whisk together tahini, lemon juice, minced garlic, and 2-3 tbsp warm water until smooth and pourable. Season with salt to taste.",
+        "timerMinutes": null
+      },
+      {
+        "step": 4,
+        "title": "Assemble the Bowl",
+        "description": "Divide quinoa among bowls. Arrange roasted sweet potato, chickpeas, kale, avocado slices, and cherry tomatoes on top. Drizzle generously with tahini dressing and serve immediately."
+      }
+    ]
+  },
+  "recipes": [
+    {
+      "id": "recipe_001",
+      "title": "Mediterranean Orzo Salad",
+      "description": "A refreshing mix of kalamata olives, feta, and heirloom tomatoes tossed with perfectly cooked orzo and a bright lemon-herb vinaigrette.",
+      "image": "orzo_salad",
+      "servings": 4,
+      "prepTimeMinutes": 30,
+      "calories": 380,
+      "rating": 4.9,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian"],
+      "mood": ["healthy", "quick-meals"],
+      "ingredients": [
+        { "name": "orzo pasta", "amount": "1.5", "unit": "cups" },
+        { "name": "kalamata olives", "amount": "1/2", "unit": "cup, halved" },
+        { "name": "feta cheese", "amount": "1/2", "unit": "cup, crumbled" },
+        { "name": "heirloom tomatoes", "amount": "2", "unit": "medium, diced" },
+        { "name": "cucumber", "amount": "1", "unit": "medium, diced" },
+        { "name": "red onion", "amount": "1/4", "unit": "cup, thinly sliced" },
+        { "name": "fresh basil", "amount": "1/4", "unit": "cup, torn" },
+        { "name": "extra virgin olive oil", "amount": "3", "unit": "tbsp" },
+        { "name": "lemon juice", "amount": "2", "unit": "tbsp" },
+        { "name": "dried oregano", "amount": "1", "unit": "tsp" },
+        { "name": "sea salt", "amount": "", "unit": "to taste" },
+        { "name": "black pepper", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cook the Orzo",
+          "description": "Bring a large pot of salted water to a boil. Cook orzo according to package directions until al dente, about 8-9 minutes. Drain, rinse under cold water, and set aside.",
+          "timerMinutes": 9
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Vinaigrette",
+          "description": "In a small bowl, whisk together olive oil, lemon juice, dried oregano, salt, and pepper until well combined.",
+          "timerMinutes": null
+        },
+        {
+          "step": 3,
+          "title": "Combine and Toss",
+          "description": "In a large bowl, combine the cooled orzo with olives, feta, tomatoes, cucumber, red onion, and basil. Pour the vinaigrette over the salad and toss gently to coat everything evenly.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Chill and Serve",
+          "description": "Refrigerate for at least 15 minutes to let the flavors meld. Serve chilled or at room temperature, garnished with extra feta and basil.",
+          "timerMinutes": 15
+        }
+      ]
+    },
+    {
+      "id": "recipe_002",
+      "title": "Avocado & Poached Egg Toast",
+      "description": "Perfectly sourdough base topped with crushed avocado, a silky poached egg, chili flakes, and microgreens. Simple, elevated, unforgettable.",
+      "image": "avocado_toast",
+      "servings": 1,
+      "prepTimeMinutes": 15,
+      "calories": 310,
+      "rating": 4.7,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian"],
+      "mood": ["breakfast", "quick-meals"],
+      "ingredients": [
+        { "name": "sourdough bread", "amount": "2", "unit": "slices" },
+        { "name": "avocado", "amount": "1", "unit": "ripe" },
+        { "name": "egg", "amount": "2", "unit": "large" },
+        { "name": "white vinegar", "amount": "1", "unit": "tbsp" },
+        { "name": "chili flakes", "amount": "1/4", "unit": "tsp" },
+        { "name": "microgreens", "amount": "1", "unit": "small handful" },
+        { "name": "lemon juice", "amount": "1", "unit": "tsp" },
+        { "name": "flaky sea salt", "amount": "", "unit": "to taste" },
+        { "name": "black pepper", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Toast the Bread",
+          "description": "Toast sourdough slices until golden and crisp on both sides. Set aside.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 2,
+          "title": "Poach the Eggs",
+          "description": "Bring a pot of water to a gentle simmer. Add vinegar. Create a swirl in the water and carefully drop in each egg. Poach for 3-4 minutes until the whites are set but the yolks remain runny.",
+          "timerMinutes": 4
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Avocado",
+          "description": "Halve the avocado and scoop out the flesh. Mash roughly with a fork, keeping some chunks for texture. Season with lemon juice and a pinch of salt.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Assemble",
+          "description": "Spread the mashed avocado generously onto each toast. Place a poached egg on top, sprinkle with chili flakes and flaky salt, and finish with fresh microgreens."
+        }
+      ]
+    },
+    {
+      "id": "recipe_003",
+      "title": "Cloud-Light Buttermilk Pancakes",
+      "description": "Extra fluffy pancakes made with aged buttermilk and a touch of vanilla, cooked to golden perfection. Served with maple syrup and fresh berries.",
+      "image": "buttermilk_pancakes",
+      "servings": 6,
+      "prepTimeMinutes": 25,
+      "calories": 290,
+      "rating": 5.0,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian"],
+      "mood": ["breakfast"],
+      "ingredients": [
+        { "name": "all-purpose flour", "amount": "1.5", "unit": "cups" },
+        { "name": "buttermilk", "amount": "1.25", "unit": "cups" },
+        { "name": "egg", "amount": "1", "unit": "large" },
+        { "name": "unsalted butter", "amount": "3", "unit": "tbsp, melted" },
+        { "name": "sugar", "amount": "2", "unit": "tbsp" },
+        { "name": "baking powder", "amount": "1.5", "unit": "tsp" },
+        { "name": "baking soda", "amount": "1/2", "unit": "tsp" },
+        { "name": "vanilla extract", "amount": "1", "unit": "tsp" },
+        { "name": "salt", "amount": "1/4", "unit": "tsp" },
+        { "name": "maple syrup", "amount": "", "unit": "for serving" },
+        { "name": "fresh berries", "amount": "", "unit": "for serving" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Mix Dry Ingredients",
+          "description": "In a large bowl, whisk together flour, sugar, baking powder, baking soda, and salt.",
+          "timerMinutes": null
+        },
+        {
+          "step": 2,
+          "title": "Combine Wet Ingredients",
+          "description": "In a separate bowl, whisk together buttermilk, egg, melted butter, and vanilla extract until smooth.",
+          "timerMinutes": null
+        },
+        {
+          "step": 3,
+          "title": "Make the Batter",
+          "description": "Pour wet ingredients into dry ingredients and stir gently until just combined. A few lumps are fine — do not overmix or the pancakes will be tough.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Cook the Pancakes",
+          "description": "Heat a non-stick pan or griddle over medium heat. Lightly butter the surface. Pour 1/4 cup of batter per pancake. Cook until bubbles form on the surface and edges look set, about 2-3 minutes, then flip and cook another 1-2 minutes until golden.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 5,
+          "title": "Serve",
+          "description": "Stack pancakes on warm plates. Drizzle with maple syrup and top with fresh berries. Serve immediately while hot and fluffy."
+        }
+      ]
+    },
+    {
+      "id": "recipe_004",
+      "title": "Wild Mushroom Pappardelle",
+      "description": "Handmade pasta tossed with sautéed forest mushrooms, thyme, garlic, and a splash of white wine cream sauce. Finished with shaved Parmigiano-Reggiano.",
+      "image": "mushroom_pappardelle",
+      "servings": 2,
+      "prepTimeMinutes": 40,
+      "calories": 520,
+      "rating": 4.8,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian"],
+      "mood": [],
+      "ingredients": [
+        { "name": "pappardelle pasta", "amount": "250", "unit": "g" },
+        { "name": "mixed wild mushrooms", "amount": "300", "unit": "g, sliced" },
+        { "name": "garlic", "amount": "3", "unit": "cloves, minced" },
+        { "name": "fresh thyme", "amount": "1", "unit": "tbsp, leaves picked" },
+        { "name": "white wine", "amount": "1/3", "unit": "cup" },
+        { "name": "heavy cream", "amount": "1/2", "unit": "cup" },
+        { "name": "Parmigiano-Reggiano", "amount": "1/3", "unit": "cup, shaved" },
+        { "name": "unsalted butter", "amount": "2", "unit": "tbsp" },
+        { "name": "olive oil", "amount": "1", "unit": "tbsp" },
+        { "name": "sea salt", "amount": "", "unit": "to taste" },
+        { "name": "black pepper", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cook the Pasta",
+          "description": "Bring a large pot of heavily salted water to a rolling boil. Cook pappardelle until al dente, about 7-8 minutes. Reserve 1 cup of pasta water before draining.",
+          "timerMinutes": 8
+        },
+        {
+          "step": 2,
+          "title": "Sauté the Mushrooms",
+          "description": "Heat olive oil and 1 tbsp butter in a large skillet over high heat. Add mushrooms in a single layer — do not crowd the pan. Cook without stirring for 3-4 minutes until deeply golden, then stir and cook another 2 minutes. Season with salt.",
+          "timerMinutes": 6
+        },
+        {
+          "step": 3,
+          "title": "Build the Sauce",
+          "description": "Reduce heat to medium. Add garlic and thyme, cook 30 seconds until fragrant. Deglaze with white wine, scraping up any brown bits. Let wine reduce by half, about 2 minutes. Add cream and remaining butter, stir until sauce thickens slightly.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 4,
+          "title": "Combine and Serve",
+          "description": "Add drained pasta to the skillet and toss with the mushroom cream sauce. Add splashes of pasta water as needed for a silky consistency. Plate and top with shaved Parmigiano-Reggiano, cracked pepper, and a sprig of thyme."
+        }
+      ]
+    },
+    {
+      "id": "recipe_005",
+      "title": "Roasted Autumn Squash with Miso Glaze & Pepitas",
+      "description": "An editorial take on seasonal comfort. The deep, earthy sweetness of roasted Kabocha squash is elevated by a savory-sweet white miso glaze, finished with the textural crunch of toasted pepitas and fresh scallions.",
+      "image": "miso_squash",
+      "servings": 6,
+      "prepTimeMinutes": 65,
+      "calories": 340,
+      "rating": 4.8,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian", "vegan"],
+      "mood": ["healthy"],
+      "ingredients": [
+        { "name": "Kabocha squash", "amount": "1", "unit": "medium" },
+        { "name": "white miso paste", "amount": "3", "unit": "tbsp" },
+        { "name": "maple syrup", "amount": "2", "unit": "tbsp" },
+        { "name": "toasted pepitas", "amount": "1/4", "unit": "cup" },
+        { "name": "scallions", "amount": "2", "unit": "thinly sliced" },
+        { "name": "flaky sea salt", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Preheat and Prep",
+          "description": "Heat your oven to 425°F (220°C). While the oven reaches temperature, halve the squash, scoop out the seeds, and cut into 1-inch thick wedges. There is no need to peel Kabocha — the skin is delicious and tender when roasted.",
+          "timerMinutes": null
+        },
+        {
+          "step": 2,
+          "title": "Whisk the Glaze",
+          "description": "In a small bowl, whisk together the miso paste, maple syrup, rice vinegar, and a splash of neutral oil until a smooth, velvety consistency forms. If it's too thick, add a teaspoon of warm water.",
+          "timerMinutes": null
+        },
+        {
+          "step": 3,
+          "title": "Roast to Perfection",
+          "description": "Arrange squash on a baking sheet lined with parchment. Brush generously with half of the miso glaze. Roast for 20 minutes, then flip, brush with the remaining glaze, and roast for another 10-15 minutes until caramelized and tender.",
+          "timerMinutes": 15
+        },
+        {
+          "step": 4,
+          "title": "Finishing Touches",
+          "description": "Transfer the warm squash to a wide serving platter. Scatter the toasted pepitas and sliced scallions over the top. Finish with a generous pinch of flaky sea salt to brighten the miso notes."
+        }
+      ]
+    },
+    {
+      "id": "recipe_006",
+      "title": "Seared Salmon with Crispy Skin & Herb Butter",
+      "description": "Restaurant-quality pan-seared salmon with impossibly crispy skin, topped with a fragrant compound butter of dill, parsley, and lemon zest. Served over wilted spinach.",
+      "image": "seared_salmon",
+      "servings": 2,
+      "prepTimeMinutes": 25,
+      "calories": 480,
+      "rating": 4.9,
+      "isFeatured": false,
+      "dietaryAttributes": ["gluten-free"],
+      "mood": ["healthy", "quick-meals"],
+      "ingredients": [
+        { "name": "salmon fillets", "amount": "2", "unit": "6-oz, skin-on" },
+        { "name": "unsalted butter", "amount": "3", "unit": "tbsp, softened" },
+        { "name": "fresh dill", "amount": "1", "unit": "tbsp, chopped" },
+        { "name": "fresh parsley", "amount": "1", "unit": "tbsp, chopped" },
+        { "name": "lemon zest", "amount": "1", "unit": "tsp" },
+        { "name": "baby spinach", "amount": "4", "unit": "cups" },
+        { "name": "garlic", "amount": "2", "unit": "cloves, sliced" },
+        { "name": "olive oil", "amount": "1", "unit": "tbsp" },
+        { "name": "sea salt", "amount": "", "unit": "to taste" },
+        { "name": "black pepper", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Make the Herb Butter",
+          "description": "Combine softened butter with dill, parsley, lemon zest, and a pinch of salt. Mix well and set aside at room temperature.",
+          "timerMinutes": null
+        },
+        {
+          "step": 2,
+          "title": "Prepare the Salmon",
+          "description": "Pat salmon fillets completely dry with paper towels — this is essential for crispy skin. Season both sides generously with salt and pepper.",
+          "timerMinutes": null
+        },
+        {
+          "step": 3,
+          "title": "Sear Skin-Side Down",
+          "description": "Heat olive oil in a cast iron skillet over medium-high heat until shimmering. Place salmon skin-side down and press gently with a spatula for the first 30 seconds. Cook undisturbed for 4 minutes until skin is deeply golden and crisp. Flip and cook 2 more minutes for medium.",
+          "timerMinutes": 6
+        },
+        {
+          "step": 4,
+          "title": "Wilt the Spinach",
+          "description": "In the same pan, add sliced garlic and cook 30 seconds. Add spinach, toss until just wilted, about 1 minute. Season lightly with salt."
+        },
+        {
+          "step": 5,
+          "title": "Plate and Serve",
+          "description": "Divide wilted spinach between plates. Place salmon on top, skin-side up to preserve the crunch. Crown each fillet with a generous dollop of herb butter and let it melt down the sides."
+        }
+      ]
+    },
+    {
+      "id": "recipe_007",
+      "title": "Spicy Korean Beef Bibimbap",
+      "description": "A sizzling stone bowl of rice topped with marinated bulgogi beef, pickled vegetables, a perfectly fried egg, and fiery gochujang sauce.",
+      "image": "bibimbap",
+      "servings": 3,
+      "prepTimeMinutes": 45,
+      "calories": 610,
+      "rating": 4.7,
+      "isFeatured": false,
+      "dietaryAttributes": [],
+      "mood": [],
+      "ingredients": [
+        { "name": "short-grain rice", "amount": "1.5", "unit": "cups" },
+        { "name": "beef sirloin", "amount": "300", "unit": "g, thinly sliced" },
+        { "name": "gochujang", "amount": "2", "unit": "tbsp" },
+        { "name": "soy sauce", "amount": "2", "unit": "tbsp" },
+        { "name": "sesame oil", "amount": "2", "unit": "tsp" },
+        { "name": "eggs", "amount": "3", "unit": "large" },
+        { "name": "carrots", "amount": "1", "unit": "julienned" },
+        { "name": "spinach", "amount": "2", "unit": "cups, blanched" },
+        { "name": "bean sprouts", "amount": "1", "unit": "cup" },
+        { "name": "kimchi", "amount": "1/2", "unit": "cup" },
+        { "name": "garlic", "amount": "2", "unit": "cloves, minced" },
+        { "name": "sesame seeds", "amount": "1", "unit": "tbsp" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cook the Rice",
+          "description": "Rinse rice until water runs clear. Cook in a rice cooker or pot with 1.75 cups water. Once done, keep covered and set aside.",
+          "timerMinutes": 20
+        },
+        {
+          "step": 2,
+          "title": "Marinate the Beef",
+          "description": "Combine sliced beef with soy sauce, 1 tbsp gochujang, sesame oil, and minced garlic. Let marinate for at least 15 minutes while you prepare the vegetables.",
+          "timerMinutes": 15
+        },
+        {
+          "step": 3,
+          "title": "Prepare the Toppings",
+          "description": "Sauté each vegetable separately: julienned carrots until tender, blanched spinach with a dash of sesame oil, and bean sprouts until just wilted. Season each lightly with salt. Set aside in separate piles."
+        },
+        {
+          "step": 4,
+          "title": "Cook the Beef",
+          "description": "Sear marinated beef in a hot skillet over high heat for 2-3 minutes until caramelized. Remove and set aside.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 5,
+          "title": "Assemble the Bowls",
+          "description": "Divide rice into bowls. Arrange beef, vegetables, and kimchi in sections on top. Fry eggs sunny-side up and place in the center. Drizzle with remaining gochujang and sprinkle sesame seeds. Mix everything together before eating."
+        }
+      ]
+    },
+    {
+      "id": "recipe_008",
+      "title": "Lemon Ricotta Blueberry Pancakes",
+      "description": "Impossibly tender ricotta-enriched pancakes studded with juicy blueberries and brightened with fresh lemon zest. A weekend brunch showstopper.",
+      "image": "ricotta_pancakes",
+      "servings": 4,
+      "prepTimeMinutes": 30,
+      "calories": 340,
+      "rating": 4.6,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian"],
+      "mood": ["breakfast"],
+      "ingredients": [
+        { "name": "ricotta cheese", "amount": "1", "unit": "cup" },
+        { "name": "all-purpose flour", "amount": "3/4", "unit": "cup" },
+        { "name": "eggs", "amount": "2", "unit": "large, separated" },
+        { "name": "blueberries", "amount": "1", "unit": "cup" },
+        { "name": "lemon zest", "amount": "1", "unit": "tbsp" },
+        { "name": "sugar", "amount": "2", "unit": "tbsp" },
+        { "name": "baking powder", "amount": "1", "unit": "tsp" },
+        { "name": "vanilla extract", "amount": "1", "unit": "tsp" },
+        { "name": "unsalted butter", "amount": "2", "unit": "tbsp, for cooking" },
+        { "name": "maple syrup", "amount": "", "unit": "for serving" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Make the Batter Base",
+          "description": "Whisk egg yolks with ricotta, sugar, lemon zest, and vanilla until smooth. Fold in flour and baking powder gently — do not overmix.",
+          "timerMinutes": null
+        },
+        {
+          "step": 2,
+          "title": "Whip the Egg Whites",
+          "description": "In a clean bowl, whip egg whites to stiff peaks using a whisk or electric mixer. This is the secret to the cloud-like texture.",
+          "timerMinutes": null
+        },
+        {
+          "step": 3,
+          "title": "Fold Together",
+          "description": "Gently fold the whipped egg whites into the ricotta batter in two additions. The batter should be airy and billowy. Fold in blueberries at the very end.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Cook Low and Slow",
+          "description": "Melt butter in a non-stick pan over medium-low heat. Spoon batter into rounds. Cook for 3-4 minutes until bubbles appear and the bottom is golden, then gently flip and cook 2-3 more minutes.",
+          "timerMinutes": 4
+        },
+        {
+          "step": 5,
+          "title": "Serve Warm",
+          "description": "Stack pancakes and drizzle with maple syrup. Top with extra blueberries and a dusting of powdered sugar for an elegant finish."
+        }
+      ]
+    },
+    {
+      "id": "recipe_009",
+      "title": "Thai Basil Chicken Stir-Fry",
+      "description": "An aromatic, fiery stir-fry with tender chicken, crisp vegetables, and the unmistakable fragrance of Thai holy basil, served over jasmine rice.",
+      "image": "thai_basil_chicken",
+      "servings": 3,
+      "prepTimeMinutes": 20,
+      "calories": 440,
+      "rating": 4.5,
+      "isFeatured": false,
+      "dietaryAttributes": [],
+      "mood": ["quick-meals"],
+      "ingredients": [
+        { "name": "chicken thigh", "amount": "500", "unit": "g, sliced" },
+        { "name": "Thai basil leaves", "amount": "1", "unit": "cup, packed" },
+        { "name": "Thai chili", "amount": "3", "unit": "sliced" },
+        { "name": "garlic", "amount": "5", "unit": "cloves, minced" },
+        { "name": "fish sauce", "amount": "2", "unit": "tbsp" },
+        { "name": "oyster sauce", "amount": "1", "unit": "tbsp" },
+        { "name": "soy sauce", "amount": "1", "unit": "tbsp" },
+        { "name": "sugar", "amount": "1", "unit": "tsp" },
+        { "name": "bell pepper", "amount": "1", "unit": "sliced" },
+        { "name": "vegetable oil", "amount": "2", "unit": "tbsp" },
+        { "name": "jasmine rice", "amount": "1.5", "unit": "cups, cooked" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Prep the Sauce",
+          "description": "Mix fish sauce, oyster sauce, soy sauce, and sugar in a small bowl. Stir until sugar dissolves. Set aside.",
+          "timerMinutes": null
+        },
+        {
+          "step": 2,
+          "title": "High-Heat Sear",
+          "description": "Heat oil in a wok over the highest heat until smoking. Add chicken in a single layer and sear without moving for 2 minutes until golden. Stir and cook another minute until nearly done. Remove from wok.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 3,
+          "title": "Aromatics and Vegetables",
+          "description": "Add garlic and chilies to the wok, stir for 15 seconds. Add bell pepper slices and stir-fry for 1 minute until slightly charred but still crisp.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Bring It Together",
+          "description": "Return chicken to the wok. Pour in the sauce mixture and toss everything over high heat for 30 seconds. Kill the heat, add Thai basil, and toss until just wilted. Serve immediately over steamed jasmine rice."
+        }
+      ]
+    },
+    {
+      "id": "recipe_010",
+      "title": "Charred Broccolini with Tahini & Dukkah",
+      "description": "Smoky, blistered broccolini drizzled with creamy tahini and showered in homemade dukkah. A side dish that steals the show from any main course.",
+      "image": "charred_broccolini",
+      "servings": 4,
+      "prepTimeMinutes": 20,
+      "calories": 180,
+      "rating": 4.4,
+      "isFeatured": false,
+      "dietaryAttributes": ["vegetarian", "vegan", "gluten-free"],
+      "mood": ["healthy", "quick-meals"],
+      "ingredients": [
+        { "name": "broccolini", "amount": "2", "unit": "bunches, trimmed" },
+        { "name": "tahini", "amount": "3", "unit": "tbsp" },
+        { "name": "lemon juice", "amount": "1", "unit": "tbsp" },
+        { "name": "hazelnuts", "amount": "2", "unit": "tbsp, crushed" },
+        { "name": "sesame seeds", "amount": "1", "unit": "tbsp" },
+        { "name": "coriander seeds", "amount": "1", "unit": "tsp, crushed" },
+        { "name": "cumin seeds", "amount": "1/2", "unit": "tsp" },
+        { "name": "olive oil", "amount": "2", "unit": "tbsp" },
+        { "name": "garlic", "amount": "2", "unit": "cloves, smashed" },
+        { "name": "flaky sea salt", "amount": "", "unit": "to taste" }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Make the Dukkah",
+          "description": "Toast hazelnuts, sesame seeds, coriander, and cumin in a dry pan over medium heat for 2-3 minutes until fragrant. Crush roughly in a mortar and pestle. Set aside.",
+          "timerMinutes": 3
+        },
+        {
+          "step": 2,
+          "title": "Char the Broccolini",
+          "description": "Heat olive oil in a large skillet or grill pan over high heat. Add broccolini and garlic, cook without moving for 3-4 minutes until deeply charred on the bottom. Flip and char the other side for 2 minutes. Season with salt.",
+          "timerMinutes": 6
+        },
+        {
+          "step": 3,
+          "title": "Make the Tahini Drizzle",
+          "description": "Whisk tahini with lemon juice and 2 tbsp water until smooth and pourable. Adjust consistency with more water if needed.",
+          "timerMinutes": null
+        },
+        {
+          "step": 4,
+          "title": "Plate and Finish",
+          "description": "Arrange charred broccolini on a serving platter. Drizzle generously with the tahini sauce, then shower with the dukkah. Finish with a pinch of flaky salt."
+        }
+      ]
+    }
+  ],
+  "moods": [
+    { "id": "breakfast", "name": "Breakfast", "icon": "cup.and.saucer.fill" },
+    { "id": "healthy", "name": "Healthy", "icon": "leaf.fill" },
+    { "id": "quick-meals", "name": "Quick Meals", "icon": "bolt.fill" },
+    { "id": "comfort", "name": "Comfort Food", "icon": "flame.fill" }
+  ]
+}
