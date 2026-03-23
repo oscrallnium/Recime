@@ -14,7 +14,7 @@ struct FeaturedRecipeCard: View {
         ZStack(alignment: .bottomLeading) {
             // Hero image
             RecipeImage(name: recipe.image)
-                .frame(height: 380)
+                .frame(maxWidth: 300, minHeight: 380, maxHeight: 380)
                 .clipped()
 
             // Gradient overlay
@@ -53,6 +53,7 @@ struct FeaturedRecipeCard: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: Color.black.opacity(0.2), radius: 12, y: 4)
+        .padding(.horizontal, 24)
     }
 }
 

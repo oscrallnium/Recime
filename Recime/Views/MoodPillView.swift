@@ -63,8 +63,9 @@ struct MoodCategorySection: View {
                     .tracking(1)
                     .foregroundStyle(Color.accent)
             }
+            .padding(.horizontal, 24)
 
-            // Horizontal scroll of pills
+            // Horizontal scroll of pills with matching leading/trailing insets
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(moods) { mood in
@@ -75,6 +76,7 @@ struct MoodCategorySection: View {
                         )
                     }
                 }
+                .padding(.horizontal, 24)
             }
         }
     }

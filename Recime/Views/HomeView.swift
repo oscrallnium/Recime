@@ -16,7 +16,7 @@ struct HomeView: View {
                 // Main scrollable content
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
- 
+
                         // MARK: - Featured Hero Card
                         if let featured = viewModel.featuredRecipe {
                             NavigationLink(value: featured) {
@@ -24,10 +24,11 @@ struct HomeView: View {
                             }
                             .buttonStyle(.plain)
                         }
- 
+
                         // MARK: - Search Bar
                         SearchBarView(text: $viewModel.searchText)
- 
+                            .padding(.horizontal, 24)
+
                         // MARK: - Filter Pills
                         // Shown when searching or filters are active
                         if !viewModel.searchText.isEmpty || viewModel.hasActiveFilters {
@@ -35,9 +36,10 @@ struct HomeView: View {
                                 isVegetarianOnly: $viewModel.isVegetarianOnly,
                                 servingsFilter: $viewModel.servingsFilter
                             )
+                            .padding(.horizontal, 24)
                             .transition(.move(edge: .top).combined(with: .opacity))
                         }
- 
+
                         // MARK: - Browse by Mood
                         if viewModel.searchText.isEmpty {
                             MoodCategorySection(
@@ -46,18 +48,19 @@ struct HomeView: View {
                                 onSelect: { viewModel.selectMood($0) }
                             )
                         }
- 
+
                         // MARK: - Trending Now
                         trendingSection
+                            .padding(.horizontal, 24)
                     }
-                    .padding(.horizontal, 16)
+                    .frame(maxWidth: .infinity)
                     .padding(.bottom, 80) // Clear the FAB
                 }
                 .animation(.easeInOut(duration: 0.3), value: viewModel.searchText)
                 .animation(.easeInOut(duration: 0.3), value: viewModel.hasActiveFilters)
  
                 // MARK: - Floating Action Button
-                fabButton
+//                fabButton
             }
             .background(Color.background)
             .navigationDestination(for: Recipe.self) { recipe in
