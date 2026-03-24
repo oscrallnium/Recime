@@ -11,30 +11,35 @@ struct MoodPillView: View {
     let mood: Mood
     let isSelected: Bool
     let action: () -> Void
-
+ 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 8) {
+            VStack(spacing: 10) {
                 Image(systemName: mood.icon)
-                    .font(.system(size: 20))
-                    .foregroundStyle(isSelected ? .white : Color.moodIcon)
-                    .frame(width: 50, height: 50)
-                    .background(
-                        isSelected
-                            ? Color.accent
-                            : Color.moodBackground
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
-
+                    .font(.system(size: 24, weight: .medium))
+ 
                 Text(mood.name.uppercased())
-                    .font(.uppercaseLabel(9))
-                    .tracking(1)
-                    .foregroundStyle(
-                        isSelected
-                            ? Color.accent
-                            : Color.secondaryText
-                    )
+                    .font(.uppercaseLabel(10))
+                    .tracking(1.2)
             }
+            .foregroundStyle(isSelected ? .white : Color.moodIcon)
+            .frame(width: 95, height: 95)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(isSelected ? Color.accent : Color.moodBackground)
+                    .shadow(
+                        color: .black.opacity(isSelected ? 0 : 0.04),
+                        radius: 1, x: 0, y: 1
+                    )
+            )
+            // Subtle inner shadow for the neumorphic feel
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .strokeBorder(
+                        .white.opacity(isSelected ? 0.2 : 0.6),
+                        lineWidth: 1
+                    )
+            )
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.2), value: isSelected)

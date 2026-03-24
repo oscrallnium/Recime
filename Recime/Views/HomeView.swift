@@ -31,7 +31,7 @@ struct HomeView: View {
 
                         // MARK: - Filter Pills
                         // Shown when searching or filters are active
-                        if !viewModel.searchText.isEmpty || viewModel.hasActiveFilters {
+                        if !viewModel.searchText.isEmpty || viewModel.hasSearchFilters {
                             FilterBarView(
                                 isVegetarianOnly: $viewModel.isVegetarianOnly,
                                 servingsFilter: $viewModel.servingsFilter
@@ -57,14 +57,12 @@ struct HomeView: View {
                     .padding(.bottom, 80) // Clear the FAB
                 }
                 .animation(.easeInOut(duration: 0.3), value: viewModel.searchText)
-                .animation(.easeInOut(duration: 0.3), value: viewModel.hasActiveFilters)
- 
-                // MARK: - Floating Action Button
-//                fabButton
+                .animation(.easeInOut(duration: 0.3), value: viewModel.hasSearchFilters)
+
             }
             .background(Color.background)
             .navigationDestination(for: Recipe.self) { recipe in
-                RecipeDetailPlaceholder(recipe: recipe)
+                   RecipeDetailView(recipe: recipe)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -79,7 +77,8 @@ struct HomeView: View {
  
                 ToolbarItem(placement: .principal) {
                     Text("Recime")
-                        .font(.uppercaseLabel(13))
+//                        .font(.uppercaseLabel(13))
+                        .font(.sectionTitle())
                         .tracking(2)
                         .foregroundStyle(Color.accent)
                 }
@@ -125,7 +124,7 @@ struct HomeView: View {
             } else if viewModel.filteredRecipes.isEmpty {
                 EmptyStateView(
                     searchText: viewModel.searchText,
-                    hasFilters: viewModel.hasActiveFilters,
+                    hasFilters: viewModel.hasSearchFilters,
                     onClearFilters: { viewModel.clearFilters() }
                 )
             } else {

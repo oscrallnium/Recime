@@ -72,13 +72,19 @@ final class HomeViewModel {
         return results
     }
  
-    /// Whether any filter is currently active (for showing a clear button)
-    var hasActiveFilters: Bool {
-        selectedMood != nil || isVegetarianOnly || servingsFilter != .all
-    }
+     /// Whether the search-level filters (vegetarian, servings) are active.
+     /// Used to control filter bar visibility — mood selection doesn't trigger this
+     /// because the mood section already shows its own selected state.
+     var hasSearchFilters: Bool {
+         isVegetarianOnly || servingsFilter != .all
+     }
+  
+     /// Whether any filter at all is active (including mood). Used for the clear button.
+     var hasActiveFilters: Bool {
+         selectedMood != nil || isVegetarianOnly || servingsFilter != .all
+     }
  
     // MARK: Actions
- 
     func loadRecipes() async {
         isLoading = true
         error = nil
