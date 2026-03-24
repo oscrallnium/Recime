@@ -24,6 +24,7 @@ struct MoodPillView: View {
             }
             .foregroundStyle(isSelected ? .white : Color.moodIcon)
             .frame(width: 95, height: 95)
+            .padding(.horizontal, 9)
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(isSelected ? Color.accent : Color.moodBackground)
