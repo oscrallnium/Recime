@@ -23,6 +23,7 @@ struct HomeView: View {
                                 FeaturedRecipeCard(recipe: featured)
                             }
                             .buttonStyle(.plain)
+                            .padding(.horizontal, 24)
                         }
 
                         // MARK: - Search Bar

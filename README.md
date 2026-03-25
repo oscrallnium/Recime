@@ -91,8 +91,8 @@ All filtering logic lives in a single `filteredRecipes` computed property on `Ho
 ### Full-Text Search Scope
 The search query is matched against four fields simultaneously: recipe title, description, ingredient names, and instruction text. This allows users to find recipes by searching for an ingredient ("garlic") or a technique ("blanch") without needing separate search modes.
 
-### `ServingsFilter` as an Enum
-Serving size ranges (1–2, 3–4, 5+) are modeled as a `CaseIterable` enum rather than free-form integers. This makes the filter menu self-describing and eliminates the need for range validation logic at the call site.
+### Servings Filter as a Continuous Slider
+Serving size is filtered via a continuous `Double` slider (1–12, step 1) in the Advanced Filters panel. The filter is treated as a minimum threshold — it only activates when moved above 1, so the default state (1) shows all recipes. This avoids the need for predefined range buckets and gives users more precise control.
 
 ### Mood as a Tag Array
 Each recipe carries a `mood: [String]` array rather than a single enum value. This lets a recipe belong to multiple mood categories (e.g. both "comfort" and "healthy"), which maps cleanly to a contains-based filter.
@@ -113,7 +113,8 @@ The navigation bar has no custom `toolbarBackground`, intentionally deferring to
 | Mood filter hidden during search | Mood browsing and keyword search represent different user intents. Showing both simultaneously would produce confusing compound filters. |
 | Filter bar only appears when a filter is active | Keeps the default home screen uncluttered. Filters are surfaced progressively as the user interacts. |
 | Featured recipe excluded from filtered list | The hero card is a curated editorial pick and is intentionally not subject to the same filtering as the browsable list below it. |
-| No ingredient include/exclude filter UI | The current `searchText` already matches against ingredient names, covering the majority of ingredient-driven searches. A dedicated multi-select include/exclude UI would require a significantly more complex filter sheet and is deferred. |
+| Ingredient include/exclude uses tag-based input | Ingredients are added one at a time as chips rather than a free-form comma list. This prevents ambiguous parsing and gives users clear visual feedback of what is actively filtering. |
+| Collapsing the Advanced Filters panel clears its state | When the panel is dismissed via the toggle button, servings, include, and exclude filters are reset automatically. This prevents hidden filters from silently affecting results after the panel is closed. |
 | `@MainActor` on ViewModel | Ensures all state mutations happen on the main thread, avoiding the need for explicit `DispatchQueue.main` calls in async callbacks. |
 
 ---
@@ -123,6 +124,5 @@ The navigation bar has no custom `toolbarBackground`, intentionally deferring to
 - **Single data source**: All recipes come from `recipes.json`. There is no pagination or lazy loading — all records are decoded into memory on first load.
 - **No persistence**: Favorites and user preferences are not saved between sessions. There is no SwiftData or UserDefaults integration yet.
 - **Images are local assets**: Recipe images reference asset catalog names. A real implementation would load remote images via URL with a caching layer.
-- **No ingredient include/exclude filter**: Ingredient-based filtering is covered by the general text search but lacks a dedicated multi-select UI that would allow "must include / must exclude" queries.
 - **Single-language search**: Search matching is case-insensitive but not locale-aware. Accented characters or non-Latin ingredient names may not match as expected.
 - **No error recovery UI**: If the JSON fails to decode, an error is stored on the ViewModel but the current UI does not surface a retry action to the user.
