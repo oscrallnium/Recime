@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct RecipeDetailView: View {
     @State private var viewModel: RecipeDetailViewModel
     @Environment(\.dismiss) private var dismiss
+
+    // MARK: - Timer State
+    @State private var timeRemaining: Int = 0
+    @State private var initialTime: Int = 0
+    @State private var isTimerRunning: Bool = false
+    @State private var showTimer: Bool = false
 
     init(recipe: Recipe) {
         _viewModel = State(initialValue: RecipeDetailViewModel(recipe: recipe))
@@ -18,64 +25,80 @@ struct RecipeDetailView: View {
     private var recipe: Recipe { viewModel.recipe }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                // MARK: - Hero Image (stretch on overscroll)
-                heroImage
+        ZStack(alignment: .bottom) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    // MARK: - Hero Image (stretch on overscroll)
+                    heroImage
 
-                // MARK: - Content
-                VStack(alignment: .leading, spacing: 24) {
-                    // Tag pills (wrapping flow layout)
-                    tagRow
+                    // MARK: - Content
+                    VStack(alignment: .leading, spacing: 24) {
+                        // Tag pills (wrapping flow layout)
+                        tagRow
 
-                    // Prep time
-                    prepTimeBadge
+                        // Prep time
+                        prepTimeBadge
 
-                    // Title
-                    Text(recipe.title)
-                        .font(.editorialTitle(28))
-                        .foregroundStyle(Color.primaryText)
-                        .fixedSize(horizontal: false, vertical: true)
+                        // Title
+                        Text(recipe.title)
+                            .font(.editorialTitle(28))
+                            .foregroundStyle(Color.primaryText)
+                            .fixedSize(horizontal: false, vertical: true)
 
-                    // Description
-                    Text(recipe.description)
-                        .font(.bodyText(15))
-                        .foregroundStyle(Color.secondaryText)
-                        .lineSpacing(5)
-                        .fixedSize(horizontal: false, vertical: true)
+                        // Description
+                        Text(recipe.description)
+                            .font(.bodyText(15))
+                            .foregroundStyle(Color.secondaryText)
+                            .lineSpacing(5)
+                            .fixedSize(horizontal: false, vertical: true)
 
-                    // Start Cooking Mode button
-                    cookingModeButton
+                        // Start Cooking Mode button
+                        cookingModeButton
 
-                    Divider()
-                        .foregroundStyle(Color.divider)
-                        .padding(.vertical, 8)
+                        Divider()
+                            .foregroundStyle(Color.divider)
+                            .padding(.vertical, 8)
 
-                    // MARK: - Ingredients
-                    IngredientsSection(
-                        ingredients: recipe.ingredients,
-                        checkedIngredients: viewModel.checkedIngredients,
-                        onToggle: { viewModel.toggleIngredient($0) }
-                    )
+                        // MARK: - Ingredients
+                        IngredientsSection(
+                            ingredients: recipe.ingredients,
+                            checkedIngredients: viewModel.checkedIngredients,
+                            onToggle: { viewModel.toggleIngredient($0) }
+                        )
 
-                    Divider()
-                        .foregroundStyle(Color.divider)
-                        .padding(.vertical, 8)
+                        Divider()
+                            .foregroundStyle(Color.divider)
+                            .padding(.vertical, 8)
 
-                    // MARK: - Method
-                    MethodSection(
-                        instructions: recipe.instructions,
-                        onTimerTap: { minutes in handleTimer(minutes) }
-                    )
+                        // MARK: - Method
+                        MethodSection(
+                            instructions: recipe.instructions,
+                            onTimerTap: { minutes in handleTimer(minutes) }
+                        )
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                    .padding(.bottom, 100) // Extra clearance for the floating timer
                 }
+            }
+            .coordinateSpace(name: "detailScroll")
+            .ignoresSafeArea(edges: .top)
+            .background(Color.background)
+
+            // MARK: - Floating Timer Overlay
+            if showTimer {
+                FloatingTimerView(
+                    timeRemaining: $timeRemaining,
+                    initialTime: $initialTime,
+                    isTimerRunning: $isTimerRunning,
+                    showTimer: $showTimer
+                )
                 .padding(.horizontal, 20)
-                .padding(.top, 20)
-                .padding(.bottom, 40)
+                .padding(.bottom, 24)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
-        .coordinateSpace(name: "detailScroll")
-        .ignoresSafeArea(edges: .top)
-        .background(Color.background)
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: showTimer)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarLeading) { backButton }
@@ -189,7 +212,96 @@ struct RecipeDetailView: View {
     // MARK: - Timer Handler
 
     private func handleTimer(_ minutes: Int) {
-        print("Timer started: \(minutes) minutes")
+        let seconds = minutes * 60
+        initialTime = seconds
+        timeRemaining = seconds
+        isTimerRunning = true
+        showTimer = true
+    }
+}
+
+// MARK: - Floating Timer View
+
+struct FloatingTimerView: View {
+    @Binding var timeRemaining: Int
+    @Binding var initialTime: Int
+    @Binding var isTimerRunning: Bool
+    @Binding var showTimer: Bool
+
+    private let ticker = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    private var formattedTime: String {
+        let minutes = timeRemaining / 60
+        let seconds = timeRemaining % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
+    private var isFinished: Bool { timeRemaining == 0 }
+
+    var body: some View {
+        HStack(spacing: 16) {
+            // Time display
+            Text(formattedTime)
+                .font(.system(size: 22, weight: .semibold, design: .monospaced))
+                .foregroundStyle(isFinished ? Color.accent : Color.primaryText)
+                .animation(.easeInOut(duration: 0.2), value: isFinished)
+
+            Spacer()
+
+            // Play / Pause
+            Button {
+                guard !isFinished else { return }
+                isTimerRunning.toggle()
+            } label: {
+                Image(systemName: isTimerRunning ? "pause.fill" : "play.fill")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.accent)
+                    .frame(width: 36, height: 36)
+                    .background(Color.accent.opacity(0.12))
+                    .clipShape(Circle())
+            }
+            .disabled(isFinished)
+
+            // Reset
+            Button {
+                timeRemaining = initialTime
+                isTimerRunning = false
+            } label: {
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(Color.secondaryText)
+                    .frame(width: 36, height: 36)
+                    .background(Color.cardBackground)
+                    .clipShape(Circle())
+            }
+
+            // Dismiss
+            Button {
+                isTimerRunning = false
+                showTimer = false
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(Color.secondaryText)
+                    .frame(width: 36, height: 36)
+                    .background(Color.cardBackground)
+                    .clipShape(Circle())
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 14)
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 24))
+        .shadow(color: Color.black.opacity(0.12), radius: 16, y: 4)
+        .onReceive(ticker) { _ in
+            guard isTimerRunning else { return }
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            } else {
+                // Time's up — pause automatically
+                isTimerRunning = false
+            }
+        }
     }
 }
 

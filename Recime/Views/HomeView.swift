@@ -75,8 +75,6 @@ struct HomeView: View {
                 .animation(.easeInOut(duration: 0.3), value: viewModel.searchText)
                 .animation(.easeInOut(duration: 0.3), value: viewModel.hasSearchFilters)
                 .animation(.easeInOut(duration: 0.3), value: isAdvancedExpanded)
-
-                fabButton
             }
             .background(Color.background)
             .navigationDestination(for: Recipe.self) { recipe in
@@ -240,24 +238,6 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - FAB
-
-    private var fabButton: some View {
-        Button {
-            // Add recipe action
-        } label: {
-            Image(systemName: "plus")
-                .font(.system(size: 22, weight: .semibold))
-                .foregroundStyle(.white)
-                .frame(width: 56, height: 56)
-                .background(Color.accent)
-                .clipShape(Circle())
-                .shadow(color: Color.accent.opacity(0.4), radius: 10, y: 4)
-        }
-        .padding(.trailing, 20)
-        .padding(.bottom, 20)
-    }
-
     // MARK: - Profile Avatar
 
     private var profileAvatar: some View {
@@ -356,7 +336,7 @@ struct AdvancedFiltersView: View {
             )
         }
         .padding(24)
-        .background(cardBeige)
+        .background(Color.background)
         .clipShape(RoundedRectangle(cornerRadius: 24))
     }
 
