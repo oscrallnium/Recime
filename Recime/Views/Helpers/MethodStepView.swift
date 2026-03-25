@@ -17,7 +17,7 @@ struct MethodStepView: View {
             VStack {
                 Text(instruction.formattedStep)
                     .font(.custom("Manrope-Bold", size: 36))
-                    .foregroundStyle(Color.black.opacity(0.4))
+                    .foregroundStyle(Color.stepCounter)
                     .frame(width: 50, alignment: .leading)
                 Spacer()
             }

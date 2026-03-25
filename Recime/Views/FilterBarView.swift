@@ -9,12 +9,11 @@ import SwiftUI
 
 struct FilterBarView: View {
     @Binding var isVegetarianOnly: Bool
-    @Binding var servingsFilter: ServingsFilter
+    @Binding var isAdvancedExpanded: Bool
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                // Vegetarian toggle pill
                 FilterPill(
                     icon: "leaf.fill",
                     label: "Vegetarian",
@@ -22,31 +21,12 @@ struct FilterBarView: View {
                     action: { isVegetarianOnly.toggle() }
                 )
 
-                // Servings filter
-                Menu {
-                    ForEach(ServingsFilter.allCases) { filter in
-                        Button {
-                            servingsFilter = filter
-                        } label: {
-                            HStack {
-                                Text(filter.rawValue)
-                                if servingsFilter == filter {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
-                    }
-                } label: {
-                    FilterPill(
-                        icon: "person.2.fill",
-                        label: servingsFilter == .all
-                            ? "Servings"
-                            : servingsFilter.rawValue,
-                        isActive: servingsFilter != .all,
-                        action: {} // Handled by Menu
-                    )
-                    .allowsHitTesting(false)
-                }
+                FilterPill(
+                    icon: isAdvancedExpanded ? "chevron.up" : "slider.horizontal.3",
+                    label: "Filters",
+                    isActive: isAdvancedExpanded,
+                    action: { isAdvancedExpanded.toggle() }
+                )
             }
         }
     }
